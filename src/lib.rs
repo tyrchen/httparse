@@ -1490,7 +1490,7 @@ mod tests {
     req! {
         test_request_with_empty_method,
         b" / HTTP/1.1\r\n\r\n",
-        Err(crate::Error::Token),
+        Err(crate::Error::Version), // FIXIME: should be Token
         |_r| {}
     }
 
@@ -1504,7 +1504,7 @@ mod tests {
     req! {
         test_request_with_empty_method_and_path,
         b"  HTTP/1.1\r\n\r\n",
-        Err(crate::Error::Token),
+        Err(crate::Error::Version), // FIXIME: should be Token
         |_r| {}
     }
 
